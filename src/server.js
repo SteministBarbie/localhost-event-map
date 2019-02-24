@@ -6,7 +6,7 @@ const Addresses = require("./addresses");
 const Locations = require("./locations");
 
 const app = express();
-const { PORT } = process.env;
+const { PORT } = process.env || 3000;
 
 app.use("/static", express.static("static")); // Exposes static folder to serve images and styles
 app.use(morgan("combined")); // Logs requests
