@@ -7,6 +7,7 @@ const Locations = require("./locations");
 
 const app = express();
 const { PORT } = process.env || 3000;
+const googleMapsApiKey = process.env.GOOGLE_API_KEY;
 
 app.use("/static", express.static("static")); // Exposes static folder to serve images and styles
 app.use(morgan("combined")); // Logs requests
@@ -23,7 +24,7 @@ const start = async function() {
   app.get("/", function(req, res) {
     res.render("index", {
       locations,
-      apiKey: "AIzaSyDTS_uokfIUmvdwWTiaqHGReQ45uek9p_M"
+      apiKey: googleMapsApiKey,
     });
   });
 
